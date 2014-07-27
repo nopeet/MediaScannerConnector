@@ -11,6 +11,8 @@ import android.widget.TextView;
  * <a href="http://d.android.com/tools/testing/testing_android.html">Testing Fundamentals</a>
  */
 public class ApplicationTest extends ActivityInstrumentationTestCase2<MainActivity> {
+    private static final String TAG = "ApplicationTest";
+
     public ApplicationTest() {
         super(MainActivity.class);
     }
@@ -34,7 +36,7 @@ public class ApplicationTest extends ActivityInstrumentationTestCase2<MainActivi
         TouchUtils.clickView(this, mEditText);
         sendKeys("SLASH S D C A R D SLASH W R O N G SLASH T E S T PERIOD M P 3");
         TouchUtils.clickView(this, mButton);
-        Log.d("ApplicationTest", "mTextView : \n" + mTextView.getText());
+        Log.d(TAG, "mTextView : \n" + mTextView.getText());
         assertTrue(mTextView.getText().toString().endsWith("Fail\n"));
     }
 
@@ -50,7 +52,7 @@ public class ApplicationTest extends ActivityInstrumentationTestCase2<MainActivi
         );
         getInstrumentation().waitForIdleSync();
         TouchUtils.clickView(this, mButton);
-        Log.d("ApplicationTest", "mTextView : \n" + mTextView.getText());
+        Log.d(TAG, "mTextView : \n" + mTextView.getText());
         assertTrue(mTextView.getText().toString().endsWith("Success\n"));
     }
 }

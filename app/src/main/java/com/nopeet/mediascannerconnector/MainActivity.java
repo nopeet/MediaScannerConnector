@@ -14,6 +14,7 @@ import android.widget.Toast;
 import static android.media.MediaScannerConnection.*;
 
 public class MainActivity extends Activity {
+    private static final String TAG = "MediaScannerConnector";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,8 +51,8 @@ public class MainActivity extends Activity {
         OnScanCompletedListener mScanCompletedListener = new OnScanCompletedListener() {
             @Override
             public void onScanCompleted(String path, Uri uri) {
-                Log.d("MediaScannerConnection", "path : " + path);
-                Log.d("MediaScannerConnection", "uri : " + uri);
+                Log.d(TAG, "path : " + path);
+                Log.d(TAG, "uri : " + uri);
                 mPath = path;
                 mUri = uri;
                 runOnUiThread(
